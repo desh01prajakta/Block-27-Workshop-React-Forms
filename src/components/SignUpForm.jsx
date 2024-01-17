@@ -7,6 +7,7 @@ export default function SignUpForm({ setToken }) {
   const [userNameError, setUserNameError] = useState('');
   
   const handleUsernameChange = (e) => {
+    e.preventDefault();
     const value = e.target.value;
     setUserName(value);
 
@@ -55,8 +56,10 @@ export default function SignUpForm({ setToken }) {
         <label>
           User Name:
           <input
+          type="text"
             value={userName}
-            onChange={(event) => setUserName(event.target.value)}
+            onChange={handleUsernameChange}
+            // {(event) => setUserName(event.target.value)}
           />
         </label>
         <label>
